@@ -18,7 +18,7 @@ In addition, we need the [h2 database](../h2.zip) as usual. Assume the h2 databa
 We can start an Ontop SPARQL endpoint by using the `ontop/ontop-endpoint` image directly.
 On Linux/Mac:
 
-```console
+```shell
 docker run --rm \
            -v $PWD/input:/opt/ontop/input \
            -v $PWD/jdbc:/opt/ontop/jdbc \
@@ -30,7 +30,7 @@ docker run --rm \
 ```
 
 On Windows:
-```console
+```shell
 docker run --rm ^
            -v %CD%/input:/opt/ontop/input ^
            -v %CD%/jdbc:/opt/ontop/jdbc ^
@@ -64,9 +64,9 @@ ENTRYPOINT java -cp ./lib/*:./jdbc/* -Dlogback.configurationFile=file:./log/logb
 
 Then, run the commands to build and run the Docker image:
 
-```console
-$ docker build -t my-ontop-endpoint .
-$ docker run -it --rm --name my-running-ontop-endpoint -p 8080:8080 my-ontop-endpoint
+```shell
+docker build -t my-ontop-endpoint .
+docker run -it --rm --name my-running-ontop-endpoint -p 8080:8080 my-ontop-endpoint
 ```
 
 ### Use Docker-compose
@@ -105,11 +105,11 @@ services:
 
 Now we can simply start it:
 
-```
-$ docker-compose up
+```shell
+docker-compose up
 ``` 
 
 It exposes the following two ports for the browser:
-- <http://localhost:8080> H2 Web Console
-- <http://localhost:8082> Ontop SPARQL endpoint
+- <http://localhost:8082> H2 Web Console
+- <http://localhost:8080> Ontop SPARQL endpoint
 
